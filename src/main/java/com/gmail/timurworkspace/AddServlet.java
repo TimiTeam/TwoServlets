@@ -3,9 +3,7 @@ package com.gmail.timurworkspace;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 
@@ -43,6 +41,9 @@ public class AddServlet extends HttpServlet {
 //
 //        RequestDispatcher dispatcher = req.getRequestDispatcher("sq");
 //        dispatcher.forward(req,resp);
-        resp.sendRedirect("sq?k="+k);
+        Cookie cookie = new Cookie("k",k+"");
+        resp.addCookie(cookie);
+
+        resp.sendRedirect("sq");
     }
 }

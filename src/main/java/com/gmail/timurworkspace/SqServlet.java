@@ -3,6 +3,7 @@ package com.gmail.timurworkspace;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,7 +42,15 @@ public class SqServlet extends HttpServlet{
 
         PrintWriter writer = resp.getWriter();
 
-        int k = Integer.parseInt(req.getParameter("k"));
+        Cookie[] cookies = req.getCookies();
+
+        int k =0;
+
+        for (Cookie c: cookies){
+            if (c.getName().equals("k")){
+                k=Integer.parseInt(c.getValue());
+            }
+        }
 
         writer.println("<html>" +
                 "<head>" +
