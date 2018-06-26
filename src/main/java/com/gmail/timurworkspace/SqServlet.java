@@ -12,12 +12,15 @@ import java.io.PrintWriter;
 
 @WebServlet("/sq")
 public class SqServlet extends HttpServlet{
-    
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("*** The doPost methods on SqServlet ***");
+
         PrintWriter writer = resp.getWriter();
 
-        int k = (Integer)req.getAttribute("k");
+        int k =(Integer) req.getAttribute("k");
+
 
         writer.println("<html>" +
                 "<head>" +
@@ -33,9 +36,12 @@ public class SqServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        System.out.println("*** The doGet methods on SqServlet ***");
+
         PrintWriter writer = resp.getWriter();
 
-        int k = (Integer)req.getAttribute("k");
+        int k = Integer.parseInt(req.getParameter("k"));
 
         writer.println("<html>" +
                 "<head>" +
