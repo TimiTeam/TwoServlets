@@ -15,7 +15,7 @@
 <h2 align="center">My name is Timur</h2>
 <h1 align="center">Welcome!!</h1>
 
-<form action="add" method="get">
+<form action="add" method="post">
   Enter first number:<input type="text" name="number1"><br>
   Enter second number:<input type="text" name="number2"><br>
   <input type="submit">
